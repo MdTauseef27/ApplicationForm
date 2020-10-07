@@ -3,6 +3,9 @@ import { Form, Button, Container, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { string as yupString, object as yupObject } from "yup";
+
+import { useFormik } from "formik";
 export const InfoForm = () => {
   const [StartDate, SetStartDate] = useState(new Date());
   const [FirstName, SetFirstName] = useState("Mohammed");
@@ -16,6 +19,15 @@ export const InfoForm = () => {
   const [PermAddress, SetPermAddress] = useState("Chaitanya Nager");
   const [ContactNo, SetContactNo] = useState("8888777799");
 
+  const validationSchema = yupObject().shape({
+    FirstName: yupString().required("First Letter Should be Capital"),
+  });
+
+  const formik = useFormik({
+    initialValues: {},
+    validationSchema,
+  });
+
   return (
     <div>
       <h1 className="text-center">Personel Information</h1>
@@ -23,15 +35,22 @@ export const InfoForm = () => {
       <Container>
         <Form>
           <Form.Row>
-            <Form.Group as={Col} controlId="formFirstname">
+            <Form.Group as={Col} controlId="FirstName">
               <Form.Label>First Name</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Enter First Name"
-                value={FirstName}
-                onChange={(e) => SetFirstName(e.target.value)}
-                onFocus={() => SetFirstName("")}
+                value={formik.values.FirstName}
+                onChange={(e) =>
+                  formik.setFieldValue("FirstName", e.target.value)
+                }
+                onBlur={formik.handleBlur}
+                isInvalid={formik.touched.FirstName}
               />
+              <Form.Control.Feedback type="invalid">
+                {formik.errors.FirstName}
+              </Form.Control.Feedback>
+
               <Form.Text className="text-muted"></Form.Text>
             </Form.Group>
 
@@ -189,12 +208,8 @@ export const InfoForm = () => {
               Cancel
             </Button>
           </center>
-
-          <p>
-            The First Name Of Applicant is {FirstName} and Last Name Is{" "}
-            {LastName}
-          </p>
         </Form>
+        )}
       </Container>
     </div>
   );
