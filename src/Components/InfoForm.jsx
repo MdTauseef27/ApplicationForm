@@ -37,7 +37,7 @@ export const InfoForm = () => {
       .required("*Email is required"),
     ContactNo: yupString()
       .matches(phoneRegExp, "*Phone number is not valid")
-      //.matches(/^\d+$/, "Contact No Must Be In Digit")
+
       .required("*Phone number required"),
     address: yupString()
       .min(3, "Too Short")
