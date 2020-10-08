@@ -17,10 +17,46 @@ export const InfoForm = () => {
   const [Height, SetHeight] = useState("5.8");
   const [Chest, SetChest] = useState("34");
   const [PermAddress, SetPermAddress] = useState("Chaitanya Nager");
+  const [PhyAddress, SetPhyAddress] = useState("Workshop corner");
   const [ContactNo, SetContactNo] = useState("8888777799");
 
+  const phoneRegExp = /^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)?$/;
+
   const validationSchema = yupObject().shape({
-    FirstName: yupString().required("First Letter Should be Capital"),
+    FirstName: yupString()
+      .min(3, "Too Short")
+      .max(20, "Too Long")
+      .required("*First Name Is Required"),
+    LastName: yupString()
+      .min(3, "Too Short")
+      .max(20, "Too Long")
+      .required("*Last Name Is Required"),
+    email: yupString()
+      .email("*Must be a valid email address")
+      .max(100, "*Email must be less than 100 characters")
+      .required("*Email is required"),
+    ContactNo: yupString()
+      .matches(phoneRegExp, "*Phone number is not valid")
+      //.matches(/^\d+$/, "Contact No Must Be In Digit")
+      .required("*Phone number required"),
+    address: yupString()
+      .min(3, "Too Short")
+      .max(50, "Too Long")
+      .required("*Permenent Address Is Required"),
+    age: yupString().required("*Age Must Be In Between 19 to 28"),
+    placeofbirth: yupString()
+      .min(3, "Too Short")
+      .max(15, "Too Long")
+      .required("*Place Of Birth Required"),
+    weight: yupString()
+      .matches(/^\d+$/, "weight must be In Digit")
+      .required("*Weight Is Required"),
+    height: yupString()
+      .matches(/^\d+$/, "Height must be In Digit")
+      .required("*Height Is Required"),
+    chest: yupString()
+      .matches(/^\d+$/, "Chest must be In Digit")
+      .required("*chest Is Required"),
   });
 
   const formik = useFormik({
@@ -41,28 +77,39 @@ export const InfoForm = () => {
                 type="text"
                 placeholder="Enter First Name"
                 value={formik.values.FirstName}
+                maxLength={21}
                 onChange={(e) =>
                   formik.setFieldValue("FirstName", e.target.value)
                 }
                 onBlur={formik.handleBlur}
-                isInvalid={formik.touched.FirstName}
+                isInvalid={formik.touched.FirstName && formik.errors.FirstName}
               />
-              <Form.Control.Feedback type="invalid">
-                {formik.errors.FirstName}
-              </Form.Control.Feedback>
-
+              {formik.touched.FirstName && formik.errors.FirstName && (
+                <Form.Control.Feedback type="invalid">
+                  {formik.errors.FirstName}
+                </Form.Control.Feedback>
+              )}
               <Form.Text className="text-muted"></Form.Text>
             </Form.Group>
 
-            <Form.Group as={Col} controlId="formlastname">
+            <Form.Group as={Col} controlId="LastName">
               <Form.Label>Last Name</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Enter Last Name"
-                value={LastName}
-                onChange={(e) => SetLastName(e.target.value)}
-                onFocus={(e) => SetLastName("")}
+                value={formik.values.LastName}
+                maxLength={21}
+                onChange={(e) =>
+                  formik.setFieldValue("LastName", e.target.value)
+                }
+                onBlur={formik.handleBlur}
+                isInvalid={formik.touched.LastName && formik.errors.LastName}
               />
+              {formik.touched.LastName && formik.errors.LastName && (
+                <Form.Control.Feedback type="invalid">
+                  {formik.errors.LastName}
+                </Form.Control.Feedback>
+              )}
               <Form.Text className="text-muted"></Form.Text>
             </Form.Group>
           </Form.Row>
@@ -74,6 +121,8 @@ export const InfoForm = () => {
               onChange={(date) => SetStartDate(date)}
               showMonthDropdown
               showYearDropdown
+              minDate={new Date(1990, 1, 1)}
+              maxDate={new Date()}
             />
             <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
@@ -83,10 +132,21 @@ export const InfoForm = () => {
             <Form.Control
               type="text"
               placeholder="Enter Place Of Birth"
-              value={PlaceOfBirth}
-              onChange={(e) => SetPlaceOfBirth(e.target.value)}
-              onFocus={(e) => SetPlaceOfBirth("")}
+              value={formik.values.placeofbirth}
+              onChange={(e) =>
+                formik.setFieldValue("placeofbirth", e.target.value)
+              }
+              onBlur={formik.handleBlur}
+              isInvalid={
+                formik.touched.placeofbirth && formik.errors.placeofbirth
+              }
             />
+
+            {formik.touched.placeofbirth && formik.errors.placeofbirth && (
+              <Form.Control.Feedback type="invalid">
+                {formik.errors.placeofbirth}
+              </Form.Control.Feedback>
+            )}
             <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
 
@@ -116,23 +176,39 @@ export const InfoForm = () => {
               <Form.Control
                 type="text"
                 placeholder="Enter age"
-                value={Age}
-                onChange={(e) => SetAge(e.target.value)}
-                onFocus={() => SetAge("")}
+                value={formik.values.age}
+                onChange={(e) => formik.setFieldValue("age", e.target.value)}
+                onBlur={formik.handleBlur}
+                isInvalid={formik.touched.age && formik.errors.age}
               />
+
+              {formik.touched.age && formik.errors.age && (
+                <Form.Control.Feedback type="invalid">
+                  {formik.errors.age}
+                </Form.Control.Feedback>
+              )}
+
               <Form.Text className="text-muted"></Form.Text>
             </Form.Group>
           </Form.Row>
 
-          <Form.Group controlId="email id">
+          <Form.Group controlId="email">
             <Form.Label>Email ID</Form.Label>
             <Form.Control
               type="text"
               placeholder="Enter email"
-              value={EmailId}
-              onChange={(e) => SetEmailID(e.target.value)}
-              onFocus={() => SetEmailID("")}
+              //value={formik.Values.email}
+              //maxLength={20}
+              onChange={(e) => formik.setFieldValue("email", e.target.value)}
+              onBlur={formik.handleBlur}
+              isInvalid={formik.touched.email && formik.errors.email}
             />
+            {formik.touched.email && formik.errors.email && (
+              <Form.Control.Feedback type="invalid">
+                {formik.errors.email}
+              </Form.Control.Feedback>
+            )}
+
             <Form.Text className="text-muted">
               We'll never share your email with anyone else.
             </Form.Text>
@@ -144,34 +220,55 @@ export const InfoForm = () => {
               <Form.Control
                 type="text"
                 placeholder="Enter Your Weight"
-                value={Weight}
-                onChange={(e) => SetWeight(e.target.value)}
-                onFocus={() => SetWeight("")}
+                value={formik.values.weight}
+                maxLength={2}
+                onChange={(e) => formik.setFieldValue("weight", e.target.value)}
+                onFocus={formik.handleBlur}
+                isInvalid={formik.touched.weight && formik.errors.weight}
               />
+              {formik.touched.weight && formik.errors.weight && (
+                <Form.Control.Feedback type="invalid">
+                  {formik.errors.weight}
+                </Form.Control.Feedback>
+              )}
               <Form.Text className="text-muted"></Form.Text>
             </Form.Group>
 
             <Form.Group as={Col} controlId="height">
-              <Form.Label>Height</Form.Label>
+              <Form.Label>Height(cm)</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Enter Your Height"
-                value={Height}
-                onChange={(e) => SetHeight(e.target.value)}
-                onFocus={() => SetHeight("")}
+                value={formik.values.height}
+                maxLength={3}
+                onChange={(e) => formik.setFieldValue("height", e.target.value)}
+                onBlur={formik.handleBlur}
+                isInvalid={formik.touched.height && formik.errors.height}
               />
+              {formik.touched.height && formik.errors.height && (
+                <Form.Control.Feedback type="invalid">
+                  {formik.errors.height}
+                </Form.Control.Feedback>
+              )}
               <Form.Text className="text-muted"></Form.Text>
             </Form.Group>
 
             <Form.Group as={Col} controlId="chest">
-              <Form.Label>Chest</Form.Label>
+              <Form.Label>Chest(cm)</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Enter chest size"
-                value={Chest}
-                onChange={(e) => SetChest(e.target.value)}
-                onFocus={() => SetChest("")}
+                value={formik.values.chest}
+                maxLength={3}
+                onChange={(e) => formik.setFieldValue("chest", e.target.value)}
+                onBlur={formik.handleBlur}
+                isInvalid={formik.touched.chest && formik.errors.chest}
               />
+              {formik.touched.chest && formik.errors.chest && (
+                <Form.Control.Feedback type="invalid">
+                  {formik.errors.chest}
+                </Form.Control.Feedback>
+              )}
               <Form.Text className="text-muted"></Form.Text>
             </Form.Group>
           </Form.Row>
@@ -181,24 +278,52 @@ export const InfoForm = () => {
             <Form.Control
               type="text"
               placeholder="Enter Your Permenent Address"
-              value={PermAddress}
-              onChange={(e) => SetPermAddress(e.target.value)}
-              onFocus={() => SetPermAddress("")}
+              value={formik.values.address}
+              onChange={(e) => formik.setFieldValue("address", e.target.value)}
+              onBlur={formik.handleBlur}
+              isInvalid={formik.touched.address && formik.errors.address}
+            />
+            {formik.touched.address && formik.errors.address && (
+              <Form.Control.Feedback type="invalid">
+                {formik.errors.address}
+              </Form.Control.Feedback>
+            )}
+            <Form.Text className="text-muted"></Form.Text>
+          </Form.Group>
+
+          <Form.Group controlId="physicaladd">
+            <Form.Label>Physical Address</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter Your Physical Address"
+              value={PhyAddress}
+              onChange={(e) => SetPhyAddress(e.target.value)}
+              onFocus={() => SetPhyAddress("")}
             />
             <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
 
-          <Form.Group controlId="contactno">
+          <Form.Group controlId="ContactNo">
             <Form.Label>Contact No</Form.Label>
             <Form.Control
               type="text"
               placeholder="Enter Your Contact No"
-              value={ContactNo}
-              onChange={(e) => SetContactNo(e.target.value)}
-              onFocus={() => SetContactNo("")}
+              maxLength={13}
+              value={formik.values.ContactNo}
+              onChange={(e) =>
+                formik.setFieldValue("ContactNo", e.target.value)
+              }
+              onBlur={formik.handleBlur}
+              isInvalid={formik.touched.ContactNo && formik.errors.ContactNo}
             />
+            {formik.touched.ContactNo && formik.errors.ContactNo && (
+              <Form.Control.Feedback type="invalid">
+                {formik.errors.ContactNo}
+              </Form.Control.Feedback>
+            )}
             <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
+
           <center>
             <Button variant="primary" type="submit">
               Submit
@@ -209,7 +334,6 @@ export const InfoForm = () => {
             </Button>
           </center>
         </Form>
-        )}
       </Container>
     </div>
   );
