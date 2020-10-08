@@ -8,17 +8,17 @@ import { string as yupString, object as yupObject } from "yup";
 import { useFormik } from "formik";
 export const InfoForm = () => {
   const [StartDate, SetStartDate] = useState(new Date());
-  const [FirstName, SetFirstName] = useState("Mohammed");
-  const [LastName, SetLastName] = useState("Zubair");
-  const [PlaceOfBirth, SetPlaceOfBirth] = useState("Nanded");
-  const [Age, SetAge] = useState("30");
-  const [EmailId, SetEmailID] = useState("zubair@gmail.com");
-  const [Weight, SetWeight] = useState("72");
-  const [Height, SetHeight] = useState("5.8");
-  const [Chest, SetChest] = useState("34");
-  const [PermAddress, SetPermAddress] = useState("Chaitanya Nager");
+  //const [FirstName, SetFirstName] = useState("Mohammed");
+  //const [LastName, SetLastName] = useState("Zubair");
+  //const [PlaceOfBirth, SetPlaceOfBirth] = useState("Nanded");
+  //const [Age, SetAge] = useState("30");
+  //const [EmailId, SetEmailID] = useState("zubair@gmail.com");
+  //const [Weight, SetWeight] = useState("72");
+  //const [Height, SetHeight] = useState("5.8");
+  //const [Chest, SetChest] = useState("34");
+  //const [PermAddress, SetPermAddress] = useState("Chaitanya Nager");
   const [PhyAddress, SetPhyAddress] = useState("Workshop corner");
-  const [ContactNo, SetContactNo] = useState("8888777799");
+  //const [ContactNo, SetContactNo] = useState("8888777799");
 
   const phoneRegExp = /^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)?$/;
 
@@ -43,7 +43,9 @@ export const InfoForm = () => {
       .min(3, "Too Short")
       .max(50, "Too Long")
       .required("*Permenent Address Is Required"),
-    age: yupString().required("*Age Must Be In Between 19 to 28"),
+    age: yupString()
+      .matches(/^\d+$/, "Age must be In Digit")
+      .required("*Age Must Be In Between 19 to 28"),
     placeofbirth: yupString()
       .min(3, "Too Short")
       .max(15, "Too Long")
@@ -177,6 +179,7 @@ export const InfoForm = () => {
                 type="text"
                 placeholder="Enter age"
                 value={formik.values.age}
+                maxLength={2}
                 onChange={(e) => formik.setFieldValue("age", e.target.value)}
                 onBlur={formik.handleBlur}
                 isInvalid={formik.touched.age && formik.errors.age}
