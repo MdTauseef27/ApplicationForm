@@ -37,7 +37,6 @@ export const InfoForm = () => {
       .required("*Email is required"),
     ContactNo: yupString()
       .matches(phoneRegExp, "*Phone number is not valid")
-
       .required("*Phone number required"),
     address: yupString()
       .min(3, "Too Short")
@@ -45,7 +44,9 @@ export const InfoForm = () => {
       .required("*Permenent Address Is Required"),
     age: yupString()
       .matches(/^\d+$/, "Age must be In Digit")
-      .required("*Age Must Be In Between 19 to 28"),
+      .min(18, "You must be at least 18 years")
+      //.max(60, "You must be at most 60 years")
+      .required("*Age Is Required"),
     placeofbirth: yupString()
       .min(3, "Too Short")
       .max(15, "Too Long")
