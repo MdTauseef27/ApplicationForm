@@ -8,18 +8,7 @@ import { string as yupString, object as yupObject } from "yup";
 import { useFormik } from "formik";
 export const InfoForm = () => {
   const [StartDate, SetStartDate] = useState(new Date());
-  //const [FirstName, SetFirstName] = useState("Mohammed");
-  //const [LastName, SetLastName] = useState("Zubair");
-  //const [PlaceOfBirth, SetPlaceOfBirth] = useState("Nanded");
-  //const [Age, SetAge] = useState("30");
-  //const [EmailId, SetEmailID] = useState("zubair@gmail.com");
-  //const [Weight, SetWeight] = useState("72");
-  //const [Height, SetHeight] = useState("5.8");
-  //const [Chest, SetChest] = useState("34");
-  //const [PermAddress, SetPermAddress] = useState("Chaitanya Nager");
   const [PhyAddress, SetPhyAddress] = useState("Workshop corner");
-  //const [ContactNo, SetContactNo] = useState("8888777799");
-
   const phoneRegExp = /^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)?$/;
 
   const validationSchema = yupObject().shape({
@@ -201,8 +190,6 @@ export const InfoForm = () => {
             <Form.Control
               type="text"
               placeholder="Enter email"
-              //value={formik.Values.email}
-              //maxLength={20}
               onChange={(e) => formik.setFieldValue("email", e.target.value)}
               onBlur={formik.handleBlur}
               isInvalid={formik.touched.email && formik.errors.email}
@@ -213,9 +200,7 @@ export const InfoForm = () => {
               </Form.Control.Feedback>
             )}
 
-            <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
-            </Form.Text>
+            <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
 
           <Form.Row>
