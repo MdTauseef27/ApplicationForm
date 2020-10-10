@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import moment from "moment";
-import { Form, Button, Container, Col } from "react-bootstrap";
+import { Form, Button, Container, Col ,Table } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -276,6 +276,65 @@ export const InfoForm = () => {
               <Form.Text className="text-muted"></Form.Text>
             </Form.Group>
           </Form.Row>
+
+<h>Qualification Details:-</h>
+          <Table responsive="sm">
+    <thead>
+      <tr>
+        
+        <th>Education</th>
+        <th>Marks Obtain</th>
+        <th>Total Marks</th>
+        <th>Percentage</th>
+        <th>Result</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>SSC</td>
+        <td>Table cell</td>
+        <td>Table cell</td>
+        <td>Table cell</td>
+        <td>Table cell</td>
+        
+      </tr>
+      </tbody>
+      <tbody>
+      <tr>
+        <td>HSC</td>
+        <td>Table cell</td>
+        <td>Table cell</td>
+        <td>Table cell</td>
+        <td>Table cell</td>
+        
+      </tr>
+      </tbody>
+
+      <tbody>
+      <tr>
+        <td>Diploma(Final Year)</td>
+        <td>Table cell</td>
+        <td>Table cell</td>
+        <td>Table cell</td>
+        <td>Table cell</td>
+        
+      </tr>
+      </tbody>
+
+      <tbody>
+      <tr>
+        <td>Graduation(Final Year)</td>
+        <td>Table cell</td>
+        <td>Table cell</td>
+        <td>Table cell</td>
+        <td>Table cell</td>
+        
+      </tr>
+      </tbody>
+      </Table>
+
+
 
           <Form.Group controlId="address">
             <Form.Label>Permenent Address</Form.Label>
