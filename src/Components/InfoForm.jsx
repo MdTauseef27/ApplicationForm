@@ -168,7 +168,7 @@ export const InfoForm = () => {
             </Form.Group>
 
             <Form.Group as={Col} controlId="city">
-              <Form.Label>City</Form.Label>
+              <Form.Label>State</Form.Label>
               <Form.Control as="select">
                 <option>Maharashtra</option>
                 <option>Andhra Pardesh</option>
