@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import moment from "moment";
 import { Form, Button, Container, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import DatePicker from "react-datepicker";
@@ -7,7 +8,7 @@ import { string as yupString, object as yupObject } from "yup";
 
 import { useFormik } from "formik";
 export const InfoForm = () => {
-  const [StartDate, SetStartDate] = useState(new Date());
+  
   const [PhyAddress, SetPhyAddress] = useState("Workshop corner");
   const phoneRegExp = /^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)?$/;
 
@@ -31,11 +32,7 @@ export const InfoForm = () => {
       .min(3, "Too Short")
       .max(50, "Too Long")
       .required("*Permenent Address Is Required"),
-    age: yupString()
-      .matches(/^\d+$/, "Age must be In Digit")
-      .min(18, "You must be at least 18 years")
-      //.max(60, "You must be at most 60 years")
-      .required("*Age Is Required"),
+   
     placeofbirth: yupString()
       .min(3, "Too Short")
       .max(15, "Too Long")
@@ -105,22 +102,39 @@ export const InfoForm = () => {
               <Form.Text className="text-muted"></Form.Text>
             </Form.Group>
           </Form.Row>
-
-          <Form.Group controlId="dateofbirth">
-            <Form.Label as={Col}>Date Of Birth</Form.Label>
+<Form.Row>
+          <Form.Group as={Col} controlId="dateofbirth">
+            <Form.Label >Date Of Birth</Form.Label><br/>
             <DatePicker
-              selected={StartDate}
-              onChange={(date) => SetStartDate(date)}
+              id="DOB"
+              selected={formik.values.DOB}
+              className="form-control"
+              onChange={(date) => formik.setFieldValue("DOB",date)}
               showMonthDropdown
               showYearDropdown
-              minDate={new Date(1985,9,9)}
-              maxDate={new Date(2002,9,9)}
+              maxDate={new Date()}
+              onBlur={formik.handleBlur}
             />
+
+            {formik.values.DOB &&
+                moment().diff(moment(formik.values.DOB), "years") < 18 && (
+                  <React.Fragment>
+                    <br />
+                    <small class="text-danger">Age should above 18</small>
+                  </React.Fragment>
+                )}
+              {formik.values.DOB &&
+                moment().diff(moment(formik.values.DOB), "years") > 30 && (
+                  <React.Fragment>
+                    <br />
+                    <small class="text-danger">Age should below 30</small>
+                  </React.Fragment>
+                )}
             <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
 
-          <Form.Group controlId="placeofbirth">
-            <Form.Label>Place Of Birth</Form.Label>
+          <Form.Group as={Col} controlId="placeofbirth">
+            <Form.Label >Place Of Birth</Form.Label>
             <Form.Control
               type="text"
               placeholder="Enter Place Of Birth"
@@ -141,6 +155,7 @@ export const InfoForm = () => {
             )}
             <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
+          </Form.Row>
 
           <Form.Row>
             <Form.Group as={Col} controlId="gender">
