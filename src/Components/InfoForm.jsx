@@ -113,8 +113,8 @@ export const InfoForm = () => {
               onChange={(date) => SetStartDate(date)}
               showMonthDropdown
               showYearDropdown
-              minDate={new Date(1990, 1, 1)}
-              maxDate={new Date()}
+              minDate={new Date(1985,9,9)}
+              maxDate={new Date(2002,9,9)}
             />
             <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
