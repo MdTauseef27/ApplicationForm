@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import moment from "moment";
-import { Form, Button, Container, Col ,Table } from "react-bootstrap";
+import { Form, Button, Container, Col  } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -8,6 +8,8 @@ import { string as yupString, object as yupObject } from "yup";
 
 import { useFormik } from "formik";
 export const InfoForm = () => {
+
+
   
   const [PhyAddress, SetPhyAddress] = useState("Workshop corner");
   const phoneRegExp = /^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)?$/;
@@ -58,6 +60,8 @@ export const InfoForm = () => {
       <h1 className="text-center">Personel Information</h1>
 
       <Container>
+
+        
         <Form>
           <Form.Row>
             <Form.Group as={Col} controlId="FirstName">
@@ -277,62 +281,6 @@ export const InfoForm = () => {
             </Form.Group>
           </Form.Row>
 
-<h>Qualification Details:-</h>
-          <Table responsive="sm">
-    <thead>
-      <tr>
-        
-        <th>Education</th>
-        <th>Marks Obtain</th>
-        <th>Total Marks</th>
-        <th>Percentage</th>
-        <th>Result</th>
-        
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>SSC</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        
-      </tr>
-      </tbody>
-      <tbody>
-      <tr>
-        <td>HSC</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        
-      </tr>
-      </tbody>
-
-      <tbody>
-      <tr>
-        <td>Diploma(Final Year)</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        
-      </tr>
-      </tbody>
-
-      <tbody>
-      <tr>
-        <td>Graduation(Final Year)</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        
-      </tr>
-      </tbody>
-      </Table>
 
 
 
