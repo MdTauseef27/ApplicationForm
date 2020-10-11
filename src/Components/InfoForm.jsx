@@ -9,18 +9,7 @@ import { string as yupString, object as yupObject } from "yup";
 import { useFormik } from "formik";
 export const InfoForm = () => {
 
-
-
-
-
-  
   const [PhyAddress, SetPhyAddress] = useState("");
-  const [YOP, SetYOP] = useState("");
-  const [MarksObtained, SetMarksObtained] = useState("");
-  const [TotalMarks, SetTotalMarks] = useState("");
-  const [Percentage, SetPercentage] = useState("");
-  const [Result, SetResult] = useState("");
-
   const phoneRegExp = /^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)?$/;
 
   const validationSchema = yupObject().shape({
@@ -292,17 +281,8 @@ export const InfoForm = () => {
 
           <h><b>Education Details:-</b></h>
             
-
             
-            
-           
-
-          
-
-
-
-
-          <Form.Group controlId="address">
+             <Form.Group controlId="address">
             <Form.Label>Permenent Address</Form.Label>
             <Form.Control
               type="text"
