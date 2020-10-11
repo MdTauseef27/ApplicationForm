@@ -282,6 +282,7 @@ export const InfoForm = () => {
           <h><b>Education Details:-</b></h>
             
             
+            
              <Form.Group controlId="address">
             <Form.Label>Permenent Address</Form.Label>
             <Form.Control
