@@ -14,7 +14,13 @@ export const InfoForm = () => {
 
 
   
-  const [PhyAddress, SetPhyAddress] = useState("Workshop corner");
+  const [PhyAddress, SetPhyAddress] = useState("");
+  const [YOP, SetYOP] = useState("");
+  const [MarksObtained, SetMarksObtained] = useState("");
+  const [TotalMarks, SetTotalMarks] = useState("");
+  const [Percentage, SetPercentage] = useState("");
+  const [Result, SetResult] = useState("");
+
   const phoneRegExp = /^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)?$/;
 
   const validationSchema = yupObject().shape({
@@ -283,6 +289,104 @@ export const InfoForm = () => {
               <Form.Text className="text-muted"></Form.Text>
             </Form.Group>
           </Form.Row>
+
+          <h><b>Education Details:-</b></h>
+
+          <Form.Group  controlId="physicaladd">
+            
+            <Form.Label>Education</Form.Label><br/>
+           
+<Form.Row>
+          <Form.Label>SSC</Form.Label>
+            <Form.Control as={Col}
+              type="text"
+              placeholder="Enter Year Of Passing"
+              value={YOP}
+              onChange={(e) => SetYOP(e.target.value)}
+              onFocus={() => SetYOP("")}
+            />{"     "}
+            <Form.Control as={Col}
+              type="text"
+              placeholder="Enter SSC Marks Otained"
+              value={MarksObtained}
+              onChange={(e) => SetMarksObtained(e.target.value)}
+              onFocus={() => SetMarksObtained("")}
+            />
+            <Form.Control as={Col}
+              type="text"
+              placeholder="Enter Total Marks"
+              value={TotalMarks}
+              onChange={(e) => SetTotalMarks(e.target.value)}
+              onFocus={() => SetTotalMarks("")}
+            />
+            <Form.Control as={Col}
+              type="text"
+              placeholder="Enter Percentage Marks"
+              value={Percentage}
+              onChange={(e) => SetPercentage(e.target.value)}
+              onFocus={() => SetPercentage("")}
+            />
+            <Form.Control as={Col}
+              type="text"
+              placeholder="Enter Result"
+              value={Result}
+              onChange={(e) => SetResult(e.target.value)}
+              onFocus={() => SetResult("")}
+            />
+             </Form.Row>
+</Form.Group>
+        
+           
+<Form.Group  controlId="physicaladd">
+            
+            
+           
+<Form.Row>
+          <Form.Label>HSC</Form.Label>
+            <Form.Control as={Col}
+              type="text"
+              placeholder="Enter Year Of Passing"
+              value={YOP}
+              onChange={(e) => SetYOP(e.target.value)}
+              onFocus={() => SetYOP("")}
+            />{"     "}
+            <Form.Control as={Col}
+              type="text"
+              placeholder="Enter SSC Marks Otained"
+              value={MarksObtained}
+              onChange={(e) => SetMarksObtained(e.target.value)}
+              onFocus={() => SetMarksObtained("")}
+            />
+            <Form.Control as={Col}
+              type="text"
+              placeholder="Enter Total Marks"
+              value={TotalMarks}
+              onChange={(e) => SetTotalMarks(e.target.value)}
+              onFocus={() => SetTotalMarks("")}
+            />
+            <Form.Control as={Col}
+              type="text"
+              placeholder="Enter Percentage Marks"
+              value={Percentage}
+              onChange={(e) => SetPercentage(e.target.value)}
+              onFocus={() => SetPercentage("")}
+            />
+            <Form.Control as={Col}
+              type="text"
+              placeholder="Enter Result"
+              value={Result}
+              onChange={(e) => SetResult(e.target.value)}
+              onFocus={() => SetResult("")}
+            />
+             </Form.Row>
+</Form.Group>
+            
+
+            
+            
+           
+
+          
 
 
 
