@@ -21,6 +21,66 @@ export const InfoForm = () => {
       .min(3, "Too Short")
       .max(20, "Too Long")
       .required("*Last Name Is Required"),
+      FatherName: yupString()
+      .min(3, "Too Short")
+      .max(20, "Too Long")
+      .required(" *Name Is Required"),
+      Education: yupString()
+      .min(3, "Too Short")
+      .max(20, "Too Long")
+      .required(" *Education Is Required"),
+      Profession: yupString()
+      .min(3, "Too Short")
+      .max(20, "Too Long")
+      .required(" *Profession Is Required"),
+      Salary: yupString()
+      .matches(/^\d+$/, "Salary must be In Digit")
+      .required("*Salary Is Required"),
+      MotherName: yupString()
+      .min(3, "Too Short")
+      .max(20, "Too Long")
+      .required(" *Name Is Required"),
+      MotherEducation: yupString()
+      .min(3, "Too Short")
+      .max(20, "Too Long")
+      .required(" *Education Is Required"),
+      MotherProfession: yupString()
+      .min(3, "Too Short")
+      .max(20, "Too Long")
+      .required(" *Profession Is Required"),
+      MotherSalary: yupString()
+      .matches(/^\d+$/, "Salary must be In Digit")
+      .required("*Salary Is Required"),
+      BrotherName: yupString()
+      .min(3, "Too Short")
+      .max(20, "Too Long")
+      .required(" *Name Is Required"),
+      BrotherEducation: yupString()
+      .min(3, "Too Short")
+      .max(20, "Too Long")
+      .required(" *Education Is Required"),
+      BrotherProfession: yupString()
+      .min(3, "Too Short")
+      .max(20, "Too Long")
+      .required(" *Profession Is Required"),
+      BrotherSalary: yupString()
+      .matches(/^\d+$/, "Salary must be In Digit")
+      .required("*Salary Is Required"),
+      SisterName: yupString()
+      .min(3, "Too Short")
+      .max(20, "Too Long")
+      .required(" *Name Is Required"),
+      SisterEducation: yupString()
+      .min(3, "Too Short")
+      .max(20, "Too Long")
+      .required(" *Education Is Required"),
+      SisterProfession: yupString()
+      .min(3, "Too Short")
+      .max(20, "Too Long")
+      .required(" *Profession Is Required"),
+      SisterSalary: yupString()
+      .matches(/^\d+$/, "Salary must be In Digit")
+      .required("*Salary Is Required"),
     email: yupString()
       .email("*Must be a valid email address")
       .max(100, "*Email must be less than 100 characters")
@@ -278,6 +338,278 @@ export const InfoForm = () => {
               <Form.Text className="text-muted"></Form.Text>
             </Form.Group>
           </Form.Row>
+
+          <h><b>Family Details:-</b></h><br/>
+<Form.Row>
+
+<Form.Group as={Col} controlId="FatherName">
+              <Form.Label>FatherName</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter Fathers Name"
+                value={formik.values.FatherName}
+                maxLength={21}
+                onChange={(e) =>
+                  formik.setFieldValue("FatherName", e.target.value)
+                }
+                onBlur={formik.handleBlur}
+                isInvalid={formik.touched.FatherName && formik.errors.FatherName}
+              />
+              {formik.touched.FatherName && formik.errors.FatherName && (
+                <Form.Control.Feedback type="invalid">
+                  {formik.errors.FatherName}
+                </Form.Control.Feedback>
+              )}
+              <Form.Text className="text-muted"></Form.Text>
+            </Form.Group>
+
+            <Form.Group as={Col} controlId="Education">
+              <Form.Label> Education</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter Education"
+                value={formik.values.Education}
+                maxLength={21}
+                onChange={(e) =>
+                  formik.setFieldValue("Education", e.target.value)
+                }
+                onBlur={formik.handleBlur}
+                isInvalid={formik.touched.Education && formik.errors.Education}
+              />
+              {formik.touched.Education && formik.errors.Education && (
+                <Form.Control.Feedback type="invalid">
+                  {formik.errors.Education}
+                </Form.Control.Feedback>
+              )}
+              <Form.Text className="text-muted"></Form.Text>
+            </Form.Group>
+
+            <Form.Group as={Col} controlId="Profession">
+              <Form.Label>Profession</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter Profession"
+                value={formik.values.Profession}
+                maxLength={21}
+                onChange={(e) =>
+                  formik.setFieldValue("Profession", e.target.value)
+                }
+                onBlur={formik.handleBlur}
+                isInvalid={formik.touched.Profession && formik.errors.Profession}
+              />
+              {formik.touched.Profession && formik.errors.Profession && (
+                <Form.Control.Feedback type="invalid">
+                  {formik.errors.Profession}
+                </Form.Control.Feedback>
+              )}
+              <Form.Text className="text-muted"></Form.Text>
+            </Form.Group>
+
+
+            <Form.Group as={Col} controlId="Salary">
+              <Form.Label>Salary</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter Salary"
+                value={formik.values.Salary}
+                maxLength={21}
+                onChange={(e) =>
+                  formik.setFieldValue("Salary", e.target.value)
+                }
+                onBlur={formik.handleBlur}
+                isInvalid={formik.touched.Salary && formik.errors.Salary}
+              />
+              {formik.touched.Salary && formik.errors.Salary && (
+                <Form.Control.Feedback type="invalid">
+                  {formik.errors.Salary}
+                </Form.Control.Feedback>
+              )}
+              <Form.Text className="text-muted"></Form.Text>
+            </Form.Group>
+
+
+</Form.Row>
+
+
+<Form.Row>
+
+<Form.Group as={Col} controlId="MotherName">
+              <Form.Label>MotherName</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter Mother Name"
+                value={formik.values.Mother}
+                maxLength={21}
+                onChange={(e) =>
+                  formik.setFieldValue("MotherName", e.target.value)
+                }
+                onBlur={formik.handleBlur}
+                isInvalid={formik.touched.MotherName && formik.errors.MotherName}
+              />
+              {formik.touched.MotherName && formik.errors.MotherName && (
+                <Form.Control.Feedback type="invalid">
+                  {formik.errors.MotherName}
+                </Form.Control.Feedback>
+              )}
+              <Form.Text className="text-muted"></Form.Text>
+            </Form.Group>
+
+            <Form.Group as={Col} controlId="MotherEducation">
+              <Form.Label> Education</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter Education"
+                value={formik.values.MotherEducation}
+                maxLength={21}
+                onChange={(e) =>
+                  formik.setFieldValue("MotherEducation", e.target.value)
+                }
+                onBlur={formik.handleBlur}
+                isInvalid={formik.touched.MotherEducation && formik.errors.MotherEducation}
+              />
+              {formik.touched.MotherEducation && formik.errors.MotherEducation && (
+                <Form.Control.Feedback type="invalid">
+                  {formik.errors.MotherEducation}
+                </Form.Control.Feedback>
+              )}
+              <Form.Text className="text-muted"></Form.Text>
+            </Form.Group>
+
+            <Form.Group as={Col} controlId="MotherProfession">
+              <Form.Label>Profession</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter Profession"
+                value={formik.values.MotherProfession}
+                maxLength={21}
+                onChange={(e) =>
+                  formik.setFieldValue("MotherProfession", e.target.value)
+                }
+                onBlur={formik.handleBlur}
+                isInvalid={formik.touched.MotherProfession && formik.errors.MotherProfession}
+              />
+              {formik.touched.MotherProfession && formik.errors.MotherProfession && (
+                <Form.Control.Feedback type="invalid">
+                  {formik.errors.MotherProfession}
+                </Form.Control.Feedback>
+              )}
+              <Form.Text className="text-muted"></Form.Text>
+            </Form.Group>
+
+
+            <Form.Group as={Col} controlId="MotherSalary">
+              <Form.Label>Salary</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter Salary"
+                value={formik.values.MotherSalary}
+                maxLength={21}
+                onChange={(e) =>
+                  formik.setFieldValue("MotherSalary", e.target.value)
+                }
+                onBlur={formik.handleBlur}
+                isInvalid={formik.touched.MotherSalary && formik.errors.MotherSalary}
+              />
+              {formik.touched.MotherSalary && formik.errors.MotherSalary && (
+                <Form.Control.Feedback type="invalid">
+                  {formik.errors.MotherSalary}
+                </Form.Control.Feedback>
+              )}
+              <Form.Text className="text-muted"></Form.Text>
+            </Form.Group>
+
+
+</Form.Row>
+
+<Form.Row>
+
+<Form.Group as={Col} controlId="BrotherName">
+              <Form.Label>BrotherName</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter Mother Name"
+                value={formik.values.BrotherName}
+                maxLength={21}
+                onChange={(e) =>
+                  formik.setFieldValue("BrotherName", e.target.value)
+                }
+                onBlur={formik.handleBlur}
+                isInvalid={formik.touched.BrotherName && formik.errors.BrotherName}
+              />
+              {formik.touched.BrotherName && formik.errors.BrotherName && (
+                <Form.Control.Feedback type="invalid">
+                  {formik.errors.BrotherName}
+                </Form.Control.Feedback>
+              )}
+              <Form.Text className="text-muted"></Form.Text>
+            </Form.Group>
+
+            <Form.Group as={Col} controlId="BrotherEducation">
+              <Form.Label> Education</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter Education"
+                value={formik.values.BrotherEducation}
+                maxLength={21}
+                onChange={(e) =>
+                  formik.setFieldValue("BrotherEducation", e.target.value)
+                }
+                onBlur={formik.handleBlur}
+                isInvalid={formik.touched.BrotherEducation && formik.errors.BrotherEducation}
+              />
+              {formik.touched.BrotherEducation && formik.errors.BrotherEducation && (
+                <Form.Control.Feedback type="invalid">
+                  {formik.errors.BrotherEducation}
+                </Form.Control.Feedback>
+              )}
+              <Form.Text className="text-muted"></Form.Text>
+            </Form.Group>
+
+            <Form.Group as={Col} controlId="BrotherProfession">
+              <Form.Label>Profession</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter Profession"
+                value={formik.values.BrotherProfession}
+                maxLength={21}
+                onChange={(e) =>
+                  formik.setFieldValue("BrotherProfession", e.target.value)
+                }
+                onBlur={formik.handleBlur}
+                isInvalid={formik.touched.BrotherProfession && formik.errors.BrotherProfession}
+              />
+              {formik.touched.BrotherProfession && formik.errors.BrotherProfession && (
+                <Form.Control.Feedback type="invalid">
+                  {formik.errors.BrotherProfession}
+                </Form.Control.Feedback>
+              )}
+              <Form.Text className="text-muted"></Form.Text>
+            </Form.Group>
+
+
+            <Form.Group as={Col} controlId="BrotherSalary">
+              <Form.Label>Salary</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter Salary"
+                value={formik.values.BrotherSalary}
+                maxLength={21}
+                onChange={(e) =>
+                  formik.setFieldValue("BrotherSalary", e.target.value)
+                }
+                onBlur={formik.handleBlur}
+                isInvalid={formik.touched.BrotherSalary && formik.errors.BrotherSalary}
+              />
+              {formik.touched.BrotherSalary && formik.errors.BrotherSalary && (
+                <Form.Control.Feedback type="invalid">
+                  {formik.errors.BrotherSalary}
+                </Form.Control.Feedback>
+              )}
+              <Form.Text className="text-muted"></Form.Text>
+            </Form.Group>
+            </Form.Row>
+
+
 
           <h><b>Education Details:-</b></h>
             
