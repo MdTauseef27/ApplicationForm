@@ -611,7 +611,8 @@ export const InfoForm = () => {
 
 
 
-          <h><b>Education Details:-</b></h>
+          <h><b>Applicant Education Details:-</b></h>
+          
             
             
             
