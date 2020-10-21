@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import moment from "moment";
-import { Form, Button, Container, Col  } from "react-bootstrap";
+import { Form, Button, Container, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -8,7 +8,6 @@ import { string as yupString, object as yupObject } from "yup";
 
 import { useFormik } from "formik";
 export const InfoForm = () => {
-
   const [PhyAddress, SetPhyAddress] = useState("");
   const phoneRegExp = /^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)?$/;
 
@@ -16,69 +15,69 @@ export const InfoForm = () => {
     FirstName: yupString()
       .min(3, "Too Short")
       .max(20, "Too Long")
-      .required("*First Name Is Required"),
+      .required("*First  Name Is Required"),
     LastName: yupString()
       .min(3, "Too Short")
       .max(20, "Too Long")
       .required("*Last Name Is Required"),
-      FatherName: yupString()
+    FatherName: yupString()
       .min(3, "Too Short")
       .max(20, "Too Long")
-      .required(" *Name Is Required"),
-      Education: yupString()
+      .required("*Father Name Is Required"),
+    Education: yupString()
       .min(3, "Too Short")
       .max(20, "Too Long")
-      .required(" *Education Is Required"),
-      Profession: yupString()
+      .required("*Education Is Required"),
+    Profession: yupString()
       .min(3, "Too Short")
       .max(20, "Too Long")
-      .required(" *Profession Is Required"),
-      Salary: yupString()
+      .required("*Profession Is Required"),
+    Salary: yupString()
       .matches(/^\d+$/, "Salary must be In Digit")
       .required("*Salary Is Required"),
-      MotherName: yupString()
+    MotherName: yupString()
       .min(3, "Too Short")
       .max(20, "Too Long")
       .required(" *Name Is Required"),
-      MotherEducation: yupString()
+    MotherEducation: yupString()
       .min(3, "Too Short")
       .max(20, "Too Long")
       .required(" *Education Is Required"),
-      MotherProfession: yupString()
+    MotherProfession: yupString()
       .min(3, "Too Short")
       .max(20, "Too Long")
       .required(" *Profession Is Required"),
-      MotherSalary: yupString()
+    MotherSalary: yupString()
       .matches(/^\d+$/, "Salary must be In Digit")
       .required("*Salary Is Required"),
-      BrotherName: yupString()
+    BrotherName: yupString()
       .min(3, "Too Short")
       .max(20, "Too Long")
       .required(" *Name Is Required"),
-      BrotherEducation: yupString()
+    BrotherEducation: yupString()
       .min(3, "Too Short")
       .max(20, "Too Long")
       .required(" *Education Is Required"),
-      BrotherProfession: yupString()
+    BrotherProfession: yupString()
       .min(3, "Too Short")
       .max(20, "Too Long")
       .required(" *Profession Is Required"),
-      BrotherSalary: yupString()
+    BrotherSalary: yupString()
       .matches(/^\d+$/, "Salary must be In Digit")
       .required("*Salary Is Required"),
-      SisterName: yupString()
+    SisterName: yupString()
       .min(3, "Too Short")
       .max(20, "Too Long")
       .required(" *Name Is Required"),
-      SisterEducation: yupString()
+    SisterEducation: yupString()
       .min(3, "Too Short")
       .max(20, "Too Long")
       .required(" *Education Is Required"),
-      SisterProfession: yupString()
+    SisterProfession: yupString()
       .min(3, "Too Short")
       .max(20, "Too Long")
       .required(" *Profession Is Required"),
-      SisterSalary: yupString()
+    SisterSalary: yupString()
       .matches(/^\d+$/, "Salary must be In Digit")
       .required("*Salary Is Required"),
     email: yupString()
@@ -92,7 +91,7 @@ export const InfoForm = () => {
       .min(3, "Too Short")
       .max(50, "Too Long")
       .required("*Permenent Address Is Required"),
-   
+
     placeofbirth: yupString()
       .min(3, "Too Short")
       .max(15, "Too Long")
@@ -118,8 +117,6 @@ export const InfoForm = () => {
       <h1 className="text-center">Personel Information</h1>
 
       <Container>
-
-        
         <Form>
           <Form.Row>
             <Form.Group as={Col} controlId="FirstName">
@@ -164,21 +161,22 @@ export const InfoForm = () => {
               <Form.Text className="text-muted"></Form.Text>
             </Form.Group>
           </Form.Row>
-<Form.Row>
-          <Form.Group as={Col} controlId="dateofbirth">
-            <Form.Label >Date Of Birth</Form.Label><br/>
-            <DatePicker
-              id="DOB"
-              selected={formik.values.DOB}
-              className="form-control"
-              onChange={(date) => formik.setFieldValue("DOB",date)}
-              showMonthDropdown
-              showYearDropdown
-              maxDate={new Date()}
-              onBlur={formik.handleBlur}
-            />
+          <Form.Row>
+            <Form.Group as={Col} controlId="dateofbirth">
+              <Form.Label>Date Of Birth</Form.Label>
+              <br />
+              <DatePicker
+                id="DOB"
+                selected={formik.values.DOB}
+                className="form-control"
+                onChange={(date) => formik.setFieldValue("DOB", date)}
+                showMonthDropdown
+                showYearDropdown
+                maxDate={new Date()}
+                onBlur={formik.handleBlur}
+              />
 
-            {formik.values.DOB &&
+              {formik.values.DOB &&
                 moment().diff(moment(formik.values.DOB), "years") < 18 && (
                   <React.Fragment>
                     <br />
@@ -192,31 +190,31 @@ export const InfoForm = () => {
                     <small class="text-danger">Age should below 30</small>
                   </React.Fragment>
                 )}
-            <Form.Text className="text-muted"></Form.Text>
-          </Form.Group>
+              <Form.Text className="text-muted"></Form.Text>
+            </Form.Group>
 
-          <Form.Group as={Col} controlId="placeofbirth">
-            <Form.Label >Place Of Birth</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Enter Place Of Birth"
-              value={formik.values.placeofbirth}
-              onChange={(e) =>
-                formik.setFieldValue("placeofbirth", e.target.value)
-              }
-              onBlur={formik.handleBlur}
-              isInvalid={
-                formik.touched.placeofbirth && formik.errors.placeofbirth
-              }
-            />
+            <Form.Group as={Col} controlId="placeofbirth">
+              <Form.Label>Place Of Birth</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter Place Of Birth"
+                value={formik.values.placeofbirth}
+                onChange={(e) =>
+                  formik.setFieldValue("placeofbirth", e.target.value)
+                }
+                onBlur={formik.handleBlur}
+                isInvalid={
+                  formik.touched.placeofbirth && formik.errors.placeofbirth
+                }
+              />
 
-            {formik.touched.placeofbirth && formik.errors.placeofbirth && (
-              <Form.Control.Feedback type="invalid">
-                {formik.errors.placeofbirth}
-              </Form.Control.Feedback>
-            )}
-            <Form.Text className="text-muted"></Form.Text>
-          </Form.Group>
+              {formik.touched.placeofbirth && formik.errors.placeofbirth && (
+                <Form.Control.Feedback type="invalid">
+                  {formik.errors.placeofbirth}
+                </Form.Control.Feedback>
+              )}
+              <Form.Text className="text-muted"></Form.Text>
+            </Form.Group>
           </Form.Row>
 
           <Form.Row>
@@ -339,10 +337,12 @@ export const InfoForm = () => {
             </Form.Group>
           </Form.Row>
 
-          <h><b>Family Details:-</b></h><br/>
-<Form.Row>
-
-<Form.Group as={Col} controlId="FatherName">
+          <h>
+            <b>Family Details:-</b>
+          </h>
+          <br />
+          <Form.Row>
+            <Form.Group as={Col} controlId="FatherName">
               <Form.Label>FatherName</Form.Label>
               <Form.Control
                 type="text"
@@ -353,7 +353,9 @@ export const InfoForm = () => {
                   formik.setFieldValue("FatherName", e.target.value)
                 }
                 onBlur={formik.handleBlur}
-                isInvalid={formik.touched.FatherName && formik.errors.FatherName}
+                isInvalid={
+                  formik.touched.FatherName && formik.errors.FatherName
+                }
               />
               {formik.touched.FatherName && formik.errors.FatherName && (
                 <Form.Control.Feedback type="invalid">
@@ -395,7 +397,9 @@ export const InfoForm = () => {
                   formik.setFieldValue("Profession", e.target.value)
                 }
                 onBlur={formik.handleBlur}
-                isInvalid={formik.touched.Profession && formik.errors.Profession}
+                isInvalid={
+                  formik.touched.Profession && formik.errors.Profession
+                }
               />
               {formik.touched.Profession && formik.errors.Profession && (
                 <Form.Control.Feedback type="invalid">
@@ -405,7 +409,6 @@ export const InfoForm = () => {
               <Form.Text className="text-muted"></Form.Text>
             </Form.Group>
 
-
             <Form.Group as={Col} controlId="Salary">
               <Form.Label>Salary</Form.Label>
               <Form.Control
@@ -413,9 +416,7 @@ export const InfoForm = () => {
                 placeholder="Enter Salary"
                 value={formik.values.Salary}
                 maxLength={21}
-                onChange={(e) =>
-                  formik.setFieldValue("Salary", e.target.value)
-                }
+                onChange={(e) => formik.setFieldValue("Salary", e.target.value)}
                 onBlur={formik.handleBlur}
                 isInvalid={formik.touched.Salary && formik.errors.Salary}
               />
@@ -426,14 +427,10 @@ export const InfoForm = () => {
               )}
               <Form.Text className="text-muted"></Form.Text>
             </Form.Group>
+          </Form.Row>
 
-
-</Form.Row>
-
-
-<Form.Row>
-
-<Form.Group as={Col} controlId="MotherName">
+          <Form.Row>
+            <Form.Group as={Col} controlId="MotherName">
               <Form.Label>MotherName</Form.Label>
               <Form.Control
                 type="text"
@@ -444,7 +441,9 @@ export const InfoForm = () => {
                   formik.setFieldValue("MotherName", e.target.value)
                 }
                 onBlur={formik.handleBlur}
-                isInvalid={formik.touched.MotherName && formik.errors.MotherName}
+                isInvalid={
+                  formik.touched.MotherName && formik.errors.MotherName
+                }
               />
               {formik.touched.MotherName && formik.errors.MotherName && (
                 <Form.Control.Feedback type="invalid">
@@ -465,13 +464,17 @@ export const InfoForm = () => {
                   formik.setFieldValue("MotherEducation", e.target.value)
                 }
                 onBlur={formik.handleBlur}
-                isInvalid={formik.touched.MotherEducation && formik.errors.MotherEducation}
+                isInvalid={
+                  formik.touched.MotherEducation &&
+                  formik.errors.MotherEducation
+                }
               />
-              {formik.touched.MotherEducation && formik.errors.MotherEducation && (
-                <Form.Control.Feedback type="invalid">
-                  {formik.errors.MotherEducation}
-                </Form.Control.Feedback>
-              )}
+              {formik.touched.MotherEducation &&
+                formik.errors.MotherEducation && (
+                  <Form.Control.Feedback type="invalid">
+                    {formik.errors.MotherEducation}
+                  </Form.Control.Feedback>
+                )}
               <Form.Text className="text-muted"></Form.Text>
             </Form.Group>
 
@@ -486,16 +489,19 @@ export const InfoForm = () => {
                   formik.setFieldValue("MotherProfession", e.target.value)
                 }
                 onBlur={formik.handleBlur}
-                isInvalid={formik.touched.MotherProfession && formik.errors.MotherProfession}
+                isInvalid={
+                  formik.touched.MotherProfession &&
+                  formik.errors.MotherProfession
+                }
               />
-              {formik.touched.MotherProfession && formik.errors.MotherProfession && (
-                <Form.Control.Feedback type="invalid">
-                  {formik.errors.MotherProfession}
-                </Form.Control.Feedback>
-              )}
+              {formik.touched.MotherProfession &&
+                formik.errors.MotherProfession && (
+                  <Form.Control.Feedback type="invalid">
+                    {formik.errors.MotherProfession}
+                  </Form.Control.Feedback>
+                )}
               <Form.Text className="text-muted"></Form.Text>
             </Form.Group>
-
 
             <Form.Group as={Col} controlId="MotherSalary">
               <Form.Label>Salary</Form.Label>
@@ -508,7 +514,9 @@ export const InfoForm = () => {
                   formik.setFieldValue("MotherSalary", e.target.value)
                 }
                 onBlur={formik.handleBlur}
-                isInvalid={formik.touched.MotherSalary && formik.errors.MotherSalary}
+                isInvalid={
+                  formik.touched.MotherSalary && formik.errors.MotherSalary
+                }
               />
               {formik.touched.MotherSalary && formik.errors.MotherSalary && (
                 <Form.Control.Feedback type="invalid">
@@ -517,13 +525,10 @@ export const InfoForm = () => {
               )}
               <Form.Text className="text-muted"></Form.Text>
             </Form.Group>
+          </Form.Row>
 
-
-</Form.Row>
-
-<Form.Row>
-
-<Form.Group as={Col} controlId="BrotherName">
+          <Form.Row>
+            <Form.Group as={Col} controlId="BrotherName">
               <Form.Label>BrotherName</Form.Label>
               <Form.Control
                 type="text"
@@ -534,7 +539,9 @@ export const InfoForm = () => {
                   formik.setFieldValue("BrotherName", e.target.value)
                 }
                 onBlur={formik.handleBlur}
-                isInvalid={formik.touched.BrotherName && formik.errors.BrotherName}
+                isInvalid={
+                  formik.touched.BrotherName && formik.errors.BrotherName
+                }
               />
               {formik.touched.BrotherName && formik.errors.BrotherName && (
                 <Form.Control.Feedback type="invalid">
@@ -555,13 +562,17 @@ export const InfoForm = () => {
                   formik.setFieldValue("BrotherEducation", e.target.value)
                 }
                 onBlur={formik.handleBlur}
-                isInvalid={formik.touched.BrotherEducation && formik.errors.BrotherEducation}
+                isInvalid={
+                  formik.touched.BrotherEducation &&
+                  formik.errors.BrotherEducation
+                }
               />
-              {formik.touched.BrotherEducation && formik.errors.BrotherEducation && (
-                <Form.Control.Feedback type="invalid">
-                  {formik.errors.BrotherEducation}
-                </Form.Control.Feedback>
-              )}
+              {formik.touched.BrotherEducation &&
+                formik.errors.BrotherEducation && (
+                  <Form.Control.Feedback type="invalid">
+                    {formik.errors.BrotherEducation}
+                  </Form.Control.Feedback>
+                )}
               <Form.Text className="text-muted"></Form.Text>
             </Form.Group>
 
@@ -576,16 +587,19 @@ export const InfoForm = () => {
                   formik.setFieldValue("BrotherProfession", e.target.value)
                 }
                 onBlur={formik.handleBlur}
-                isInvalid={formik.touched.BrotherProfession && formik.errors.BrotherProfession}
+                isInvalid={
+                  formik.touched.BrotherProfession &&
+                  formik.errors.BrotherProfession
+                }
               />
-              {formik.touched.BrotherProfession && formik.errors.BrotherProfession && (
-                <Form.Control.Feedback type="invalid">
-                  {formik.errors.BrotherProfession}
-                </Form.Control.Feedback>
-              )}
+              {formik.touched.BrotherProfession &&
+                formik.errors.BrotherProfession && (
+                  <Form.Control.Feedback type="invalid">
+                    {formik.errors.BrotherProfession}
+                  </Form.Control.Feedback>
+                )}
               <Form.Text className="text-muted"></Form.Text>
             </Form.Group>
-
 
             <Form.Group as={Col} controlId="BrotherSalary">
               <Form.Label>Salary</Form.Label>
@@ -598,7 +612,9 @@ export const InfoForm = () => {
                   formik.setFieldValue("BrotherSalary", e.target.value)
                 }
                 onBlur={formik.handleBlur}
-                isInvalid={formik.touched.BrotherSalary && formik.errors.BrotherSalary}
+                isInvalid={
+                  formik.touched.BrotherSalary && formik.errors.BrotherSalary
+                }
               />
               {formik.touched.BrotherSalary && formik.errors.BrotherSalary && (
                 <Form.Control.Feedback type="invalid">
@@ -607,16 +623,13 @@ export const InfoForm = () => {
               )}
               <Form.Text className="text-muted"></Form.Text>
             </Form.Group>
-            </Form.Row>
+          </Form.Row>
 
+          <h>
+            <b>Applicant Education Details:-</b>
+          </h>
 
-
-          <h><b>Applicant Education Details:-</b></h>
-          
-            
-            
-            
-             <Form.Group controlId="address">
+          <Form.Group controlId="address">
             <Form.Label>Permenent Address</Form.Label>
             <Form.Control
               type="text"
@@ -666,8 +679,6 @@ export const InfoForm = () => {
             )}
             <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
-
-          
 
           <center>
             <Button variant="primary" type="submit">
