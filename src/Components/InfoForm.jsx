@@ -68,7 +68,7 @@ export const InfoForm = () => {
     SisterName: yupString()
       .min(3, "Too Short")
       .max(20, "Too Long")
-      .required(" *Name Is Required"),
+      .required("*Sister Name Is Required"),
     SisterEducation: yupString()
       .min(3, "Too Short")
       .max(20, "Too Long")
