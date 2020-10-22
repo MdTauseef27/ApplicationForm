@@ -234,7 +234,7 @@ export const InfoForm = () => {
                 <option>Andhra Pardesh</option>
                 <option>Telangana</option>
                 <option>Kerela</option>
-                <option>Rajisthan</option>
+                <option>Kerela</option>
               </Form.Control>
             </Form.Group>
 
