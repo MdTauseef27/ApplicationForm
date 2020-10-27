@@ -625,10 +625,6 @@ export const InfoForm = () => {
             </Form.Group>
           </Form.Row>
 
-          <h>
-            <b>Applicant Education Details:-</b>
-          </h>
-
           <Form.Group controlId="address">
             <Form.Label>Permenent Address</Form.Label>
             <Form.Control
