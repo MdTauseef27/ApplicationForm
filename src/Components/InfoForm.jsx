@@ -635,6 +635,8 @@ export const InfoForm = () => {
             </Form.Group>
           </Form.Row>
 
+          <Form.Row></Form.Row>
+
           <Form.Group controlId="address">
             <Form.Label>Permenent Address</Form.Label>
             <Form.Control
