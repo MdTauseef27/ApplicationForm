@@ -628,7 +628,10 @@ export const InfoForm = () => {
           <Form.Row>
             <Form.Group as={Col} controlId="BrotherName">
               <Form.Label>Sister Name</Form.Label>
-              <Form.Control></Form.Control>
+              <Form.Control
+                type="text"
+                placeholder="Enter Sister Name"
+              ></Form.Control>
             </Form.Group>
           </Form.Row>
 
