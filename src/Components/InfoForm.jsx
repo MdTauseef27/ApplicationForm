@@ -635,7 +635,9 @@ export const InfoForm = () => {
             </Form.Group>
           </Form.Row>
 
-          <Form.Row></Form.Row>
+          <Form.Row>
+            <Form.Group as={Col} controlId="Education"></Form.Group>
+          </Form.Row>
 
           <Form.Row>
             <Form.Group as={Col} controlId="Education"></Form.Group>
