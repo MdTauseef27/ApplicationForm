@@ -639,10 +639,6 @@ export const InfoForm = () => {
             <Form.Group as={Col} controlId="Education"></Form.Group>
           </Form.Row>
 
-          <Form.Row>
-            <Form.Group as={Col} controlId="Education"></Form.Group>
-          </Form.Row>
-
           <Form.Group controlId="address">
             <Form.Label>Permenent Address</Form.Label>
             <Form.Control
