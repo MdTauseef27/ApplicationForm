@@ -642,12 +642,13 @@ export const InfoForm = () => {
               ></Form.Control>
             </Form.Group>
 
-            <Form.Group as={Col} controlId="Profession"></Form.Group>
-            <Form.Label>Profession</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Enter Profession"
-            ></Form.Control>
+            <Form.Group as={Col} controlId="Profession">
+              <Form.Label>Profession</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter Profession"
+              ></Form.Control>
+            </Form.Group>
           </Form.Row>
 
           <Form.Group controlId="address">
@@ -710,6 +711,7 @@ export const InfoForm = () => {
               Cancel
             </Button>
             <Button> Edit Info</Button>
+            {"      "}
           </center>
         </Form>
       </Container>
