@@ -643,6 +643,7 @@ export const InfoForm = () => {
             </Form.Group>
 
             <Form.Group as={Col} controlId="Profession"></Form.Group>
+            <Form.Label>Profession</Form.Label>
           </Form.Row>
 
           <Form.Group controlId="address">
