@@ -709,6 +709,7 @@ export const InfoForm = () => {
             <Button Variant="primary" type="cancel">
               Cancel
             </Button>
+            <Button></Button>
           </center>
         </Form>
       </Container>
