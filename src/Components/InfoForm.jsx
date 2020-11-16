@@ -644,7 +644,10 @@ export const InfoForm = () => {
 
             <Form.Group as={Col} controlId="Profession"></Form.Group>
             <Form.Label>Profession</Form.Label>
-            <Form.Control type="text"></Form.Control>
+            <Form.Control
+              type="text"
+              placeholder="Enter Profession"
+            ></Form.Control>
           </Form.Row>
 
           <Form.Group controlId="address">
