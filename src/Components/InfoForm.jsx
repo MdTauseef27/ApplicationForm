@@ -649,9 +649,9 @@ export const InfoForm = () => {
                 placeholder="Enter Profession"
               ></Form.Control>
             </Form.Group>
-          </Form.Row>
 
-          <Form.Group as={Col} controlId="Salary"></Form.Group>
+            <Form.Group as={Col} controlId="Salary"></Form.Group>
+          </Form.Row>
 
           <Form.Group controlId="address">
             <Form.Label>Permenent Address</Form.Label>
