@@ -659,7 +659,7 @@ export const InfoForm = () => {
             </Form.Group>
           </Form.Row>
           <Button>submit</Button>
-          <button></button>
+          <button>Cancel</button>
 
           <Form.Group controlId="address">
             <Form.Label>Permenent Address</Form.Label>
