@@ -65,7 +65,7 @@ export const InfoForm = () => {
     BrotherSalary: yupString()
       .matches(/^\d+$/, "Salary must be In Digit")
       .required("*Salary Is Required"),
-
+    SisterName: yupString().min(3, "Too Short"),
     email: yupString()
       .email("*Must be a valid email address")
       .max(100, "*Email must be less than 100 characters")
