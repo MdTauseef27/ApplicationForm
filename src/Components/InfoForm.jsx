@@ -69,6 +69,7 @@ export const InfoForm = () => {
       .min(3, "Too Short")
       .max(20, "Too Long")
       .required("*Name Is Required"),
+    SisterEducation: yupString(),
     email: yupString()
       .email("*Must be a valid email address")
       .max(100, "*Email must be less than 100 characters")
