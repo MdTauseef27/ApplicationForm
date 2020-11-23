@@ -644,7 +644,9 @@ export const InfoForm = () => {
                 }
               />
               {formik.touched.SisterName && formik.errors.SisterName && (
-                <Form.Control.Feedback></Form.Control.Feedback>
+                <Form.Control.Feedback>
+                  {formik.errors.SisterName}
+                </Form.Control.Feedback>
               )}
             </Form.Group>
 
