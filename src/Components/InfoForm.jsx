@@ -640,10 +640,7 @@ export const InfoForm = () => {
                 }
                 onBlur={formik.handleBlur}
                 isInvalid={
-                  formik.touched.SisterName &&
-                  formik.errors.SisterName && (
-                    <Form.Control.Feedback type="invalid"></Form.Control.Feedback>
-                  )
+                  formik.touched.SisterName && formik.errors.SisterName
                 }
               />
             </Form.Group>
