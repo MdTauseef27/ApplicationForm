@@ -666,6 +666,12 @@ export const InfoForm = () => {
                   formik.errors.SisterEducation
                 }
               ></Form.Control>
+              {formik.touched.SisterEducation &&
+                formik.errors.SisterEducation && (
+                  <Form.Control.Feedback>
+                    {formik.errors.SisterEducation}
+                  </Form.Control.Feedback>
+                )}
             </Form.Group>
 
             <Form.Group as={Col} controlId="Profession">
