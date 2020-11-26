@@ -660,6 +660,7 @@ export const InfoForm = () => {
                 onChange={(e) =>
                   formik.setFieldValue("SisterEducation", e.target.value)
                 }
+                onBlur={formik.handleBlur}
               ></Form.Control>
             </Form.Group>
 
