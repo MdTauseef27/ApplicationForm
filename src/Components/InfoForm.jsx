@@ -656,6 +656,7 @@ export const InfoForm = () => {
                 type="text"
                 placeholder="Enter Education"
                 value={formik.values.SisterEducation}
+                maxLength={21}
               ></Form.Control>
             </Form.Group>
 
