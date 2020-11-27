@@ -679,6 +679,7 @@ export const InfoForm = () => {
               <Form.Control
                 type="text"
                 placeholder="Enter Profession"
+                value={formik.values.SisterProfession}
               ></Form.Control>
             </Form.Group>
 
