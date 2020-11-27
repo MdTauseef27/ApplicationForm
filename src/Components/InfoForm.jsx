@@ -680,6 +680,7 @@ export const InfoForm = () => {
                 type="text"
                 placeholder="Enter Profession"
                 value={formik.values.SisterProfession}
+                maxLength={21}
               ></Form.Control>
             </Form.Group>
 
