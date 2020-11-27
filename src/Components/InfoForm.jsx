@@ -681,6 +681,9 @@ export const InfoForm = () => {
                 placeholder="Enter Profession"
                 value={formik.values.SisterProfession}
                 maxLength={21}
+                onChange={(e) =>
+                  formik.setFieldValue("SisterProfession", e.target.value)
+                }
               ></Form.Control>
             </Form.Group>
 
