@@ -713,6 +713,11 @@ export const InfoForm = () => {
                   formik.touched.SisterSalery && formik.errors.SisterSalery
                 }
               ></Form.Control>
+              {formik.touched.SisterSalery && formik.errors.SisterSalery && (
+                <Form.Control.Feedback>
+                  {formik.errors.SisterSalery}
+                </Form.Control.Feedback>
+              )}
             </Form.Group>
           </Form.Row>
 
