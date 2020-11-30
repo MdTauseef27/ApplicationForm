@@ -698,11 +698,13 @@ export const InfoForm = () => {
                 )}
             </Form.Group>
 
-            <Form.Group as={Col} controlId="Salary">
+            <Form.Group as={Col} controlId="SisterSalery">
               <Form.Label>Salery</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Enter Salery"
+                value={formik.values.SisterSalery}
+                maxLength={21}
               ></Form.Control>
             </Form.Group>
           </Form.Row>
