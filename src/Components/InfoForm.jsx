@@ -709,6 +709,9 @@ export const InfoForm = () => {
                   formik.setFieldValue("SisterSalery", e.target.value)
                 }
                 onBlur={formik.handleBlur}
+                isInvalid={
+                  formik.touched.SisterSalery && formik.errors.SisterSalery
+                }
               ></Form.Control>
             </Form.Group>
           </Form.Row>
