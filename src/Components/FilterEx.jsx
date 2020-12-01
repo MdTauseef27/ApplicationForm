@@ -68,10 +68,10 @@ export const FilterEx = () => {
   return (
     <div>
       <p>hiiiiiiiiiiiii</p>
-      {/* <button value="all" onClick={handleClick}>
+      <button value="all" onClick={handleClick}>
         All
       </button>
-      <button value="Ethiopia" onClick={handleClick}>
+      {/*<button value="Ethiopia" onClick={handleClick}>
         Ethiopia
       </button>
       <button value="Costa Rica" onClick={handleClick}>
