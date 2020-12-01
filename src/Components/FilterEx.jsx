@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import { useState } from "react";
 
 export const FilterEx = () => {
-  const [selectedCategory, setSelectedCategory] = useState("1");
   const [showAll, setShowAll] = useState([
     {
       name: "Banko",
@@ -41,36 +40,38 @@ export const FilterEx = () => {
       price: 25,
     },
   ]);
-  const categories = [
-    { label: "React Features", value: 1 },
-    { label: ".Net Features", value: 2 },
-    { label: "Python Features", value: 3 },
-    { label: "C++ Features", value: 3 },
-  ];
-  const [filteredData, setFilteredData] = useState([]);
+  const [filteredCoffee, setFilteredCoffee] = useState();
   useEffect(() => {
-    const filtered = showAll.filter(
-      (item) => item.category == selectedCategory.value
-    );
-    setFilteredData(filtered);
-  }, [selectedCategory]);
-  console.log("filtered", filteredData);
+    setFilteredCoffee(showAll);
+  }, [showAll]);
 
-  //   useEffect(()=>{
-  //     console.log("Selected Categor::",selectedCategory.value, "---", rowdata);
-  //     // setFilteredData(rowdata);
-  //     const filtered = rowdata.filter(item=> item.category == selectedCategory.value);
-  //     console.log("filteredData====>", filtered);
-  //     setFilteredData(filtered);
-  // },[selectedCategory]);
+  console.log("CoffeesDatasss123===>", filteredCoffee);
+
+  const handleClick = (e) => {
+    const byorigin = e.target.value;
+    if (e.target.value === "all") {
+      filteredCoffee = setShowAll;
+    } else {
+      filteredCoffee = setFilteredCoffee.filter(
+        (setFilteredCoffee) => setFilteredCoffee.origin === byorigin
+      );
+    }
+    setShowAll({ filteredCoffee: filteredCoffee });
+  };
+
+  const showmethod = () => {
+    const showmethod = showAll.filteredCoffee.map((coffee) => (
+      <li key={coffee.name}>{coffee.name}</li>
+    ));
+  };
 
   return (
     <div>
-      <p>hiiiiiiiiiiiii</p>
-      <button value="all" onClick={(e) => setSelectedCategory(filteredData)}>
+      {/* <p>hiiiiiiiiiiiii</p>
+      <button value="all" onClick={handleClick}>
         All
       </button>
-      {/* <button value="Ethiopia" onClick={handleClick}>
+      <button value="Ethiopia" onClick={handleClick}>
         Ethiopia
       </button>
       <button value="Costa Rica" onClick={handleClick}>
