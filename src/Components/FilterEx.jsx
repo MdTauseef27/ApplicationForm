@@ -67,8 +67,8 @@ export const FilterEx = () => {
 
   return (
     <div>
-      {/* <p>hiiiiiiiiiiiii</p>
-      <button value="all" onClick={handleClick}>
+      <p>hiiiiiiiiiiiii</p>
+      {/* <button value="all" onClick={handleClick}>
         All
       </button>
       <button value="Ethiopia" onClick={handleClick}>
@@ -87,7 +87,7 @@ export const FilterEx = () => {
         Panama
       </button>
 
-      <p>Coffee: {showmethod}</p> */}
+      <p>Coffee: {showmethod}</p>  */}
     </div>
   );
 };
