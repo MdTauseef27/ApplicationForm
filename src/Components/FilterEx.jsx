@@ -71,10 +71,10 @@ export const FilterEx = () => {
       <button value="all" onClick={handleClick}>
         All
       </button>
-      {/*<button value="Ethiopia" onClick={handleClick}>
+      <button value="Ethiopia" onClick={handleClick}>
         Ethiopia
       </button>
-      <button value="Costa Rica" onClick={handleClick}>
+      {/*<button value="Costa Rica" onClick={handleClick}>
         Costa Rica
       </button>
       <button value="Kenya" onClick={handleClick}>
