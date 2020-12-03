@@ -80,7 +80,9 @@ export const FilterEx = () => {
       <button value="Kenya" onClick={handleClick}>
         Kenya
       </button>
-      <button value="keyasa" onClick={handleClick}></button>
+      <button value="keyasa" onClick={handleClick}>
+        Keyasa
+      </button>
       {/*
       <button value="Kenya" onClick={handleClick}>
         Kenya
