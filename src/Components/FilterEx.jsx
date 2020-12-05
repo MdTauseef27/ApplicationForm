@@ -86,11 +86,11 @@ export const FilterEx = () => {
       <button value="Panama" onClick={handleClick}>
         Panama
       </button>
-      {/*<button value="Panama" onClick={handleClick}>
+      <button value="Panama" onClick={handleClick}>
         Panama
       </button>
 
-      <p>Coffee: {showmethod}</p>  */}
+      {/*<p>Coffee: {showmethod}</p>  */}
     </div>
   );
 };
