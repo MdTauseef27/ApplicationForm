@@ -87,7 +87,7 @@ export const FilterEx = () => {
         Panama
       </button>
 
-      {/*<p>Coffee: {showmethod}</p>  */}
+      <p>Coffee: {showmethod}</p>
     </div>
   );
 };
