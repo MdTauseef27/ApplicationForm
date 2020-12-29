@@ -6,8 +6,7 @@ import "./App.css";
 function App() {
   return (
     <div>
-      {/* <InfoForm />; */}
-      {/* <FilterEx /> */}
+      <InfoForm />;{/* <FilterEx /> */}
     </div>
   );
 }
