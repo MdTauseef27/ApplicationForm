@@ -7,7 +7,7 @@ function App() {
   return (
     <div>
       {/* <InfoForm />; */}
-      <FilterEx />
+      {/* <FilterEx /> */}
     </div>
   );
 }
