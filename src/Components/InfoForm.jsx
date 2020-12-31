@@ -668,7 +668,7 @@ export const InfoForm = () => {
               ></Form.Control>
               {formik.touched.SisterEducation &&
                 formik.errors.SisterEducation && (
-                  <Form.Control.Feedback>
+                  <Form.Control.Feedback type="invalid">
                     {formik.errors.SisterEducation}
                   </Form.Control.Feedback>
                 )}
